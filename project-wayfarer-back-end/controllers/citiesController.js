@@ -4,7 +4,7 @@ const db = require('../models');
 // BASE ROUTE - /api/cities
 
 // actual route - GET /api/cities
-//return dat for all cities
+//return data for all cities
 
 router.get('/', (req, res) => {
   db.City.find({}, (err, foundCities) => {
@@ -18,8 +18,9 @@ router.get('/', (req, res) => {
 
 
 // actual route - GET /api/cities/:id
-router.get('/:id', (req, res) => {
+router.get('/cities/:id', (req, res) => {
   db.City.findById(req.params.id, (err, foundCity) => {
+      console.log('hello from one city')
     if (err) return console.log(err);
     
     res.json(foundCity);

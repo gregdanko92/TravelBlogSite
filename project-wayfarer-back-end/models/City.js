@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const CitySchema = new Schema({
-  name: String,
-  image: String
+  city: String,
+  image: String,
 });
 
 const City = mongoose.model('City', CitySchema);

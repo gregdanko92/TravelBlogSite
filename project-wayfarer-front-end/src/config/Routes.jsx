@@ -5,17 +5,29 @@ import ArticlePage from '../pages/ArticlePage';
 import CityShowPage from '../pages/CityShowPage';
 import { Switch, Route } from 'react-router-dom';
 import CreateCity from '../pages/CreateCity';
+import CityModel from '../models/CityModel'
 
 
 function Routes(){
+  
     return(
         <Switch>
 
         <Route path='/' exact component={HomePage}/>
           
-        <Route path='/cities' component={CitiesIndexPage} />
+        {/* <Route path='/cities/:id' exact component={CityShowPage} /> */}
+        <Route exact path='/cities/:id'render={(props)=> <CityShowPage {...props} />} />
+        
+        <Route path='/cities' component={CitiesIndexPage}
+        />
     
-        <Route path='/cities/:id' component={CityShowPage} />
+
+
+        {/* <Route path='/cities/:id' exact render={()=>{
+          <CityShowPage cityData={cityData}/>}} /> */}
+
+        
+        
 
         <Route path='/cities/:id/:id' component={ArticlePage} />
 
